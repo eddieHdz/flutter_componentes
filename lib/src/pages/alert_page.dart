@@ -7,6 +7,7 @@ class AlertPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Alerta page'),
       ),
+      body: Text('datos'),
     );
   }
 }
