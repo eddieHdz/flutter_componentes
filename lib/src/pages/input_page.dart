@@ -7,6 +7,8 @@ class inputPage extends StatefulWidget {
 
 class _inputPageState extends State<inputPage> {
   String _nombre = '';
+  String _correo = '';
+  String _pass = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,15 +18,19 @@ class _inputPageState extends State<inputPage> {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
         children: <Widget>[
-          crearInput(),
+          _crearInput(),
           Divider(),
-          crearPersona(),
+          _crearEmail(),
+          Divider(),
+          _crearPassword(),
+          Divider(),
+          _crearPersona(),
         ],
       ),
     );
   }
 
-  Widget crearInput() {
+  Widget _crearInput() {
     return TextField(
       //autofocus: true,
       decoration: InputDecoration(
@@ -43,9 +49,46 @@ class _inputPageState extends State<inputPage> {
     );
   }
 
-  Widget crearPersona() {
+  Widget _crearEmail() {
+    return TextField(
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
+          hintText: 'Correo',
+          labelText: 'Correo electronico',
+          helperText: 'Solo poner correo',
+          suffixIcon: Icon(Icons.alternate_email),
+          icon: Icon(Icons.mail)),
+      onChanged: (value) {
+        setState(() {
+          _correo = value;
+        });
+      },
+    );
+  }
+
+  Widget _crearPassword() {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
+          hintText: 'Password',
+          labelText: 'Contraseña',
+          helperText: 'Solo poner contraseña',
+          suffixIcon: Icon(Icons.lock_open),
+          icon: Icon(Icons.lock)),
+      onChanged: (value) {
+        setState(() {
+          _pass = value;
+        });
+      },
+    );
+  }
+
+  Widget _crearPersona() {
     return ListTile(
       title: Text('Nombre es : $_nombre'),
+      subtitle: Text('Correo : $_correo'),
     );
   }
 }
