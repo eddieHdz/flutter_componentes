@@ -10,6 +10,14 @@ class _inputPageState extends State<inputPage> {
   String _correo = '';
   String _pass = '';
   String _fecha = '';
+
+  List<String> _poderes = [
+    'volar',
+    'super fuerza',
+    'vision calorifica',
+    'aliento de hielo',
+    'super velocidad'
+  ];
   TextEditingController _inputFileDateController = new TextEditingController();
 
   @override
@@ -29,6 +37,8 @@ class _inputPageState extends State<inputPage> {
           Divider(),
           _crearFecha(context),
           Divider(),
+          /* _crearDropDown(),
+          Divider(), */
           _crearPersona(),
         ],
       ),
@@ -113,7 +123,9 @@ class _inputPageState extends State<inputPage> {
         context: context,
         initialDate: new DateTime.now(),
         firstDate: new DateTime(2018),
-        lastDate: new DateTime(2025));
+        lastDate: new DateTime(2025),
+        locale: Locale('es', 'ES'));
+
     if (picked != null) {
       _fecha = picked.toString();
       _inputFileDateController.text = _fecha;
