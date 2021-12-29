@@ -11,15 +11,15 @@ class AvatarPage extends StatelessWidget {
             padding: EdgeInsets.all(5.0),
             child: CircleAvatar(
               backgroundImage: NetworkImage(
-                  'https://avatarfiles.alphacoders.com/130/130431.jpg'),
-              radius: 30.0,
+                  'https://duelbrand.files.wordpress.com/2013/06/logo-superman.png'),
+              radius: 20.0,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 10.0),
+            padding: EdgeInsets.only(right: 10.0),
             child: CircleAvatar(
               child: Text('SL'),
-              backgroundColor: Colors.brown,
+              backgroundColor: Colors.green[300],
             ),
           )
         ],
@@ -27,9 +27,9 @@ class AvatarPage extends StatelessWidget {
       body: Center(
         child: FadeInImage(
           image: NetworkImage(
-              'https://avatarfiles.alphacoders.com/130/130431.jpg'),
+              'https://sm.ign.com/t/ign_latam/screenshot/default/superman-huesos-rotos_3fr8.1280.jpg'),
           placeholder: AssetImage('assets/jar-loading.gif'),
-          fadeInDuration: Duration(microseconds: 200),
+          fadeInDuration: Duration(milliseconds: 200),
         ),
       ),
     );
