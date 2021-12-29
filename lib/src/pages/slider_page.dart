@@ -70,7 +70,7 @@ class _SliderPageState extends State<SliderPage> {
       value: _bloquearCheck,
       onChanged: (value) {
         setState(() {
-          _bloquearCheck = value!;
+          _bloquearCheck = value;
         });
       },
     );
