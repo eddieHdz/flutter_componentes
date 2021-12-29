@@ -10,14 +10,8 @@ class _inputPageState extends State<inputPage> {
   String _correo = '';
   String _pass = '';
   String _fecha = '';
+  String dropdownValue = 'Volar';
 
-  List<String> _poderes = [
-    'volar',
-    'super fuerza',
-    'vision calorifica',
-    'aliento de hielo',
-    'super velocidad'
-  ];
   TextEditingController _inputFileDateController = new TextEditingController();
 
   @override
@@ -37,8 +31,8 @@ class _inputPageState extends State<inputPage> {
           Divider(),
           _crearFecha(context),
           Divider(),
-          /* _crearDropDown(),
-          Divider(), */
+          _crearDropDown(),
+          Divider(),
           _crearPersona(),
         ],
       ),
@@ -130,6 +124,31 @@ class _inputPageState extends State<inputPage> {
       _fecha = picked.toString();
       _inputFileDateController.text = _fecha;
     }
+  }
+
+  Widget _crearDropDown() {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_drop_down),
+      elevation: 16,
+      style: const TextStyle(color: Colors.black),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+      },
+      items: <String>[
+        'Volar',
+        'Super fuerza',
+        'Vision calorifica',
+        'Super velocidad'
+      ].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
   }
 
   Widget _crearPersona() {
