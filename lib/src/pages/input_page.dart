@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class inputPage extends StatefulWidget {
   @override
@@ -121,7 +122,7 @@ class _inputPageState extends State<inputPage> {
         locale: Locale('es', 'ES'));
 
     if (picked != null) {
-      _fecha = picked.toString();
+      _fecha = DateFormat('dd/MM/yyyy').format(picked); //picked.toString();
       _inputFileDateController.text = _fecha;
     }
   }
